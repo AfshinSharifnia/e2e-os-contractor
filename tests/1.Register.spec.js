@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
+
+//Recruiter
 test("Recruiter Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
   await expect(page).toHaveURL("https://os-project-black.vercel.app/");
-
-  //Recruiter
+  await expect(page).toHaveTitle("Contractor DB");
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='recruiter']").click();
@@ -18,6 +19,7 @@ test("Recruiter Registeration", async ({ page }) => {
 test("Contractor Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
   await expect(page).toHaveURL("https://os-project-black.vercel.app/");
+  await expect(page).toHaveTitle("Contractor DB");
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='techs']").click();
@@ -25,9 +27,7 @@ test("Contractor Registeration", async ({ page }) => {
   await page.locator("[name='displayName']").fill("Contractor1");
   await page.locator("[type='password']").fill("Cont2023$");
   await page.locator("text='Create User'").click();
-});
 
-// //Assertions
-// console.log(await page.title());
-// await expect(page).toHaveTitle("Contractor DB");
-// console.log(await page.url());
+  console.log(await page.title());
+  console.log(await page.url());
+});
