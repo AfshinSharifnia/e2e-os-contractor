@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
-//Register Recruiter
 test("Recruiter Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
+  await expect(page).toHaveURL("https://os-project-black.vercel.app/");
 
   //Recruiter
   await page.locator("text='Log In Or Sign Up'").click();
@@ -17,6 +17,7 @@ test("Recruiter Registeration", async ({ page }) => {
 
 test("Contractor Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
+  await expect(page).toHaveURL("https://os-project-black.vercel.app/");
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='techs']").click();
@@ -30,4 +31,3 @@ test("Contractor Registeration", async ({ page }) => {
 // console.log(await page.title());
 // await expect(page).toHaveTitle("Contractor DB");
 // console.log(await page.url());
-// await expect(page).toHaveURL("https://os-project-black.vercel.app/");
