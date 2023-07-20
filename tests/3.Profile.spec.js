@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-
+//Contractor profile
 test("contractor profile", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/contractorlist");
   await expect(page).toHaveURL(
@@ -26,4 +26,40 @@ test("contractor profile", async ({ page }) => {
   // await page.locator("[type='file']").click();
   // await page.locator("[type='file']").setInputFiles();
   await page.pause();
+});
+
+//Recruiter profile
+test("Recruiter profile", async ({ page }) => {
+  await page.goto("https://os-project-black.vercel.app/contractorlist");
+  await expect(page).toHaveURL(
+    "https://os-project-black.vercel.app/contractorlist"
+  );
+
+  await page.locator("text='Log in'").click();
+  await page.locator("#emailInput").fill("rec1@test.com");
+  await page.locator("[placeholder='Password...']").fill("Rec2023$");
+  await page.locator("text='Login'").click();
+  await page.locator("[tabindex='0']").click();
+  //Xpath
+  await page.locator('//*[@id="account-menu"]/div[3]/ul/li[2]').click();
+  await page.pause();
+
+  /*CSS Selector
+  await page
+    .locator(
+      "#account-menu > div.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiPopover-paper.css-1tne83u > ul > li:nth-child(2)"
+    )
+    .click();
+    */
+
+  await page.locator("[name='firstName']").fill("Contractor1-Name");
+  await page.locator("[name='lastName']").fill("Contractor1-LastName");
+  await page.locator("[name='email']").fill("TestEmail@test.com");
+  await page.locator("[name='qualification']").fill("Test-Qualification");
+  await page.locator("[name='linkedinUrl']").fill("Test-LinkedIn");
+  await page.locator("[name='companyName']").fill("Test-companyname");
+  await page.locator("[name='companyInfo']").fill("Test-About Us");
+  await page
+    .locator("#root > div.updateForm.flexCenter > form > button > span")
+    .click();
 });
