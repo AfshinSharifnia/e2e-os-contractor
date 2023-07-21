@@ -13,9 +13,9 @@ test("contractor profile", async ({ page }) => {
   await page.locator("text='My Profile'").click();
   await page.locator(".image_container").click();
   await page.locator("text='Edit My Profile'").click();
-  await page.locator("[name='firstName']").fill("myFirstName");
-  await page.locator("[name='lastName']").fill("myLastName");
-  await page.locator("[name='qualification']").fill("myQualification");
+  await page.locator("[name='firstName']").fill("John");
+  await page.locator("[name='lastName']").fill("Doe");
+  await page.locator("[name='qualification']").fill("Project Manager");
   await page.locator("[name='linkedinUrl']").fill("myLinkedIn");
   await page.locator("[name='githubUrl']").fill("myGitHub");
   await page.locator("[name='summary']").fill("mySummary");
