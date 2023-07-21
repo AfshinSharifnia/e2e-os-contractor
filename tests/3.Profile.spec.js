@@ -22,7 +22,7 @@ test("contractor profile", async ({ page }) => {
   await page.locator("[name='projectName-0']").fill("myProject1");
   await page.locator("[name='description-0']").fill("myProject1-Description");
   await page.locator("text='Save'").click();
-
+await page.locator('xpath=//*[@id="root"]/div[1]/ul/button').click
   // await page.locator("[type='file']").click();
   // await page.locator("[type='file']").setInputFiles();
   await page.pause();
@@ -42,7 +42,6 @@ test("Recruiter profile", async ({ page }) => {
   await page.locator("[tabindex='0']").click();
   //Xpath
   await page.locator('//*[@id="account-menu"]/div[3]/ul/li[2]').click();
-  await page.pause();
 
   /*CSS Selector
   await page
