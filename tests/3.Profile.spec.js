@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 //Contractor profile
-test("contractor profile", async ({ page }) => {
+test.only("contractor profile", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/contractorlist");
   await expect(page).toHaveURL(
     "https://os-project-black.vercel.app/contractorlist"
@@ -22,9 +22,11 @@ test("contractor profile", async ({ page }) => {
   await page.locator("[name='projectName-0']").fill("myProject1");
   await page.locator("[name='description-0']").fill("myProject1-Description");
   await page.locator("text='Save'").click();
-await page.locator('xpath=//*[@id="root"]/div[1]/ul/button').click
-  // await page.locator("[type='file']").click();
-  // await page.locator("[type='file']").setInputFiles();
+  await page.locator('xpath=//*[@id="root"]/div[1]/ul/button').click();
+  await page.locator('xpath=//*[@id="account-menu"]/div[3]/ul/li[3]').click();
+  await page.locator("[href='/About'  ]").click();
+  await page.locator("[href='/search'  ]").click();
+  await page.locator("[href='/contractorList'  ]").click();
   await page.pause();
 });
 
@@ -40,16 +42,16 @@ test("Recruiter profile", async ({ page }) => {
   await page.locator("[placeholder='Password...']").fill("Rec2023$");
   await page.locator("text='Login'").click();
   await page.locator("[tabindex='0']").click();
-  //Xpath
-  await page.locator('//*[@id="account-menu"]/div[3]/ul/li[2]').click();
 
-  /*CSS Selector
-  await page
-    .locator(
-      "#account-menu > div.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiPopover-paper.css-1tne83u > ul > li:nth-child(2)"
-    )
-    .click();
-    */
+  //Xpath
+  await page.locator('xpath=//*[@id="account-menu"]/div[3]/ul/li[2]').click();
+
+  //CSS Selector
+  // await page
+  //   .locator(
+  //     "#account-menu > div.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiPopover-paper.css-1tne83u > ul > li:nth-child(2)"
+  //   )
+  //   .click();
 
   await page.locator("[name='firstName']").fill("Contractor1-Name");
   await page.locator("[name='lastName']").fill("Contractor1-LastName");
