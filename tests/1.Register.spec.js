@@ -5,6 +5,7 @@ test("Recruiter Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
   await expect.soft(page).toHaveURL("https://os-project-black.vercel.app/");
   await expect.soft(page).toHaveTitle("Contractor DB");
+  await expect(page.locator("text='Log In Or Sign Up'")).toBeVisible();
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='recruiter']").click();
