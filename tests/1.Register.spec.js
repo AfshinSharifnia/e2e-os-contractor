@@ -13,6 +13,7 @@ test("Recruiter Registeration", async ({ page }) => {
   await page.locator("[placeholder='DisplayName...']").fill("Recruiter1");
   await page.locator("[placeholder='Password...']").fill("Rec2023$");
   await page.locator("text ='Create User'").click();
+  await expect(page).toHaveScreenshot();
 });
 
 //Contractor
