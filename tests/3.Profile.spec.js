@@ -32,7 +32,7 @@ test.only("contractor profile", async ({ page }) => {
 });
 
 //Recruiter profile
-test.only("Recruiter profile", async ({ page }) => {
+test("Recruiter profile", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/contractorlist");
   await expect(page).toHaveURL(
     "https://os-project-black.vercel.app/contractorlist"
@@ -46,14 +46,6 @@ test.only("Recruiter profile", async ({ page }) => {
 
   //Xpath
   await page.locator('xpath=//*[@id="account-menu"]/div[3]/ul/li[2]').click();
-
-  //CSS Selector
-  // await page
-  //   .locator(
-  //     "#account-menu > div.MuiPaper-root.MuiMenu-paper.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation0.MuiPopover-paper.css-1tne83u > ul > li:nth-child(2)"
-  //   )
-  //   .click();
-
   await page.locator("[name='firstName']").fill("Contractor1-Name");
   await page.locator("[name='lastName']").fill("Contractor1-LastName");
   await page.locator("[name='email']").fill("TestEmail@test.com");
