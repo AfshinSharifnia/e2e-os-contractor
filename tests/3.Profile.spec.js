@@ -27,11 +27,12 @@ test.only("contractor profile", async ({ page }) => {
   await page.locator("[href='/About'  ]").click();
   await page.locator("[href='/search'  ]").click();
   await page.locator("[href='/contractorList'  ]").click();
-  await page.pause();
+  await page.locator("[class='image_container']").click();
+  await page.locator("text='Logout'").click();
 });
 
 //Recruiter profile
-test("Recruiter profile", async ({ page }) => {
+test.only("Recruiter profile", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/contractorlist");
   await expect(page).toHaveURL(
     "https://os-project-black.vercel.app/contractorlist"
@@ -63,4 +64,11 @@ test("Recruiter profile", async ({ page }) => {
   await page
     .locator("#root > div.updateForm.flexCenter > form > button > span")
     .click();
+  await page
+    .locator(
+      "[class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1j16qob']"
+    )
+    .click();
+  await page.pause();
+  await page.locator("text='Logout'").click();
 });
