@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 //Contractor profile
-test.only("contractor profile", async ({ page }) => {
+test("contractor profile", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/contractorlist");
   await expect(page).toHaveURL(
     "https://os-project-black.vercel.app/contractorlist"
@@ -61,6 +61,5 @@ test("Recruiter profile", async ({ page }) => {
       "[class='MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-1j16qob']"
     )
     .click();
-  await page.pause();
   await page.locator("text='Logout'").click();
 });
