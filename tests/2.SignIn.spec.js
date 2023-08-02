@@ -9,7 +9,7 @@ test("SignIn Recruiter", async ({ page }) => {
 
   await testLogin.login("rec1@test.com", "Rec2023$");
 
-  await page.waitForLoadState("networkidle");
+  await page.waitForTimeout(8000);
 
   // await page.goto("https://os-project-black.vercel.app/");
   // await page.locator("text='Log In Or Sign Up'").click();
@@ -26,7 +26,7 @@ test("SignIn Contractor", async ({ page }) => {
 
   await testLogin.login("cont1@test.com", "Cont2023$");
 
-  await page.waitForLoadState("networkidle");
+  await page.waitForTimeout(8000);
 
   // await page.goto("https://os-project-black.vercel.app/");
   // await page.locator("text='Log In Or Sign Up'").click();
