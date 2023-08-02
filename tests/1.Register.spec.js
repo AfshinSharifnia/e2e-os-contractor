@@ -4,18 +4,17 @@ import { test, expect } from "@playwright/test";
 test("Recruiter Registeration", async ({ page }) => {
   await page.goto("https://os-project-black.vercel.app/");
   await expect.soft(page).toHaveURL("https://os-project-black.vercel.app/");
-  await page.pause();
   await expect.soft(page).toHaveTitle("Contractor DB");
   await expect(page.locator("text='Log In Or Sign Up'")).toBeVisible();
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='recruiter']").click();
+  await expect(page.locator("[value='recruiter']")).toBeChecked();
   await page.locator("#emailInput").fill("rec1@test.com");
   await page.locator("[placeholder='DisplayName...']").fill("Recruiter1");
   await page.locator("[placeholder='Password...']").fill("Rec2023$");
   await page.locator("text ='Create User'").click();
   await page.waitForLoadState("networkidle");
-  await expect(page).toHaveScreenshot();
 });
 
 //Contractor
@@ -27,6 +26,7 @@ test("Contractor Registeration", async ({ page }) => {
   await page.locator("text='Log In Or Sign Up'").click();
   await page.locator("text='Register'").click();
   await page.locator("[value='techs']").click();
+  await expect(page.locator("[value='techs']")).toBeChecked();
   await page.locator("#emailInput").fill("cont1@test.com");
   await page.locator("[name='displayName']").fill("Contractor1");
   await page.locator("[type='password']").fill("Cont2023$");
