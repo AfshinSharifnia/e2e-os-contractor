@@ -9,6 +9,7 @@ test.only("contractor profile", async ({ page }) => {
   await page.locator("#emailInput").fill("cont1@test.com");
   await page.locator("[placeholder='Password...']").fill("Cont2023$");
   await page.locator("text='Login'").click();
+  await page.waitForLoadState("networkidle");
   await page.locator(".image_container").click();
   await page.locator("text='My Profile'").click();
   await page.locator(".image_container").click();
@@ -42,9 +43,8 @@ test("Recruiter profile", async ({ page }) => {
   await page.locator("#emailInput").fill("rec1@test.com");
   await page.locator("[placeholder='Password...']").fill("Rec2023$");
   await page.locator("text='Login'").click();
+  await page.waitForLoadState("networkidle");
   await page.locator("[tabindex='0']").click();
-
-  //Xpath
   await page.locator('xpath=//*[@id="account-menu"]/div[3]/ul/li[2]').click();
   await page.locator("[name='firstName']").fill("Contractor1-Name");
   await page.locator("[name='lastName']").fill("Contractor1-LastName");
