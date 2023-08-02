@@ -14,7 +14,6 @@ test("Recruiter Registeration", async ({ page }) => {
   await page.locator("[placeholder='DisplayName...']").fill("Recruiter1");
   await page.locator("[placeholder='Password...']").fill("Rec2023$");
   await page.locator("text ='Create User'").click();
-  await page.waitForLoadState("networkidle");
 });
 
 //Contractor
@@ -31,7 +30,6 @@ test("Contractor Registeration", async ({ page }) => {
   await page.locator("[name='displayName']").fill("Contractor1");
   await page.locator("[type='password']").fill("Cont2023$");
   await page.locator("text='Create User'").click();
-  await page.waitForLoadState("networkidle");
   console.log(await page.title());
   console.log(await page.url());
 });
