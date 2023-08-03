@@ -1,5 +1,6 @@
 export class LoginPage {
-  //constructor:  is a function that is used to create and initialize objects.
+  
+  //constructor:  A function to create and initialize objects.
 
   constructor(page) {
     //locators
