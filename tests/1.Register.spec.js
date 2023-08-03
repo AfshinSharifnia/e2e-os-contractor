@@ -1,35 +1,26 @@
 import { test, expect } from "@playwright/test";
+import { recruiterRegistration } from "../pages/recruiterRegistration";
+import { contractorRegistration } from "../pages/contractorRegistration";
 
 //Recruiter
 test("Recruiter Registeration", async ({ page }) => {
-  await page.goto("https://os-project-black.vercel.app/");
-  await expect.soft(page).toHaveURL("https://os-project-black.vercel.app/");
-  await expect.soft(page).toHaveTitle("Contractor DB");
-  await expect(page.locator("text='Log In Or Sign Up'")).toBeVisible();
-  await page.locator("text='Log In Or Sign Up'").click();
-  await page.locator("text='Register'").click();
-  await page.locator("[value='recruiter']").click();
-  await expect(page.locator("[value='recruiter']")).toBeChecked();
-  await page.locator("#emailInput").fill("rec1@test.com");
-  await page.locator("[placeholder='DisplayName...']").fill("Recruiter1");
-  await page.locator("[placeholder='Password...']").fill("Rec2023$");
-  await page.locator("text ='Create User'").click();
+  const recRegister = new recruiterRegistration(page);
+  await recRegister.gotoLoginPage();
+  await recRegister.recRegister("rec6@test.com", "Recruiter6", "Rec2023$");
+  await page.waitForTimeout(8000);
 });
 
 //Contractor
 
 test("Contractor Registeration", async ({ page }) => {
-  await page.goto("https://os-project-black.vercel.app/");
-  await expect(page).toHaveURL("https://os-project-black.vercel.app/");
-  await expect(page).toHaveTitle("Contractor DB");
-  await page.locator("text='Log In Or Sign Up'").click();
-  await page.locator("text='Register'").click();
-  await page.locator("[value='techs']").click();
-  await expect(page.locator("[value='techs']")).toBeChecked();
-  await page.locator("#emailInput").fill("cont1@test.com");
-  await page.locator("[name='displayName']").fill("Contractor1");
-  await page.locator("[type='password']").fill("Cont2023$");
-  await page.locator("text='Create User'").click();
-  console.log(await page.title());
-  console.log(await page.url());
+  const contRegister = new contractorRegistration(page);
+  await contRegister.gotoLoginPage();
+  await contRegister.contRegister(
+    "qa1@test.com",
+    "Contractor11",
+    "Cont2023"
+  );
+  await page.waitForTimeout(8000);
+
+
 });
